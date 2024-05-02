@@ -1,0 +1,67 @@
+menu = """
+
+Bom dia!
+Selecione o que deseja fazer hoje por favor:
+
+[0]depositar
+[1]sacar
+[2]extrato
+[3]sair
+
+"""
+
+saldo = 0
+limite = 500
+extrato = ""
+numero_saques = 0
+LIMITES_SAQUES = 3
+
+while True :
+  opcao = input(menu)
+  if opcao == "0":
+    print("Depósito")
+    valor = float(input("Informe o valor do depósito: "))
+    if valor > 0:
+      saldo += valor
+  
+  
+  
+  
+  elif opcao == "1":
+    print("Saque")
+    valor = float(input("Informe o valor do saque: "))
+    if valor > saldo:
+      print(f"Saldo insuficiente. Você tem apenas R${saldo:.2f}")
+
+    elif valor > limite:
+      print("Limite de saque excedido")
+
+    elif valor < saldo:
+      saldo -= valor
+    
+  
+  
+  
+  
+  elif opcao == "2":
+    if extrato == 0:
+      print("Nenhum movimento foi realizado")
+
+    else:
+      print(f"Saldo: R${saldo:.2f}")
+    
+    
+    
+
+  
+  
+  
+  elif opcao == "3":
+    print("Tenha um ótimo dia e obrigado por confiar em nós!")
+    break
+  
+  
+  
+  
+  else:
+    print("Opção inválida, por favor tente novamente.")
